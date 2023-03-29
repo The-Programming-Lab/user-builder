@@ -8,6 +8,9 @@ name: Build and Deploy to GKE
 
 on:
   workflow_dispatch:
+    inputs:
+      repo_name:
+        description: 'The name of the repository'
     
 
 env:
@@ -31,13 +34,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        repository: The-Programming-Lab/${{ github.event.inputs.repo_name}}
+        repository: The-Programming-Lab/${{ inputs.repo_name}}
         ref: main
         
-
-    - name: My Step
-      run: echo "The repository name is ${{ github.event.inputs.repo_name }}"
-
     # Configure Workload Identity Federation and generate an access token.
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
