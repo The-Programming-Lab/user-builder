@@ -14,7 +14,7 @@ on:
     
 
 env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  PROJECT_ID: ${{ inputs.PROJECT_ID }}
   GAR_LOCATION: us-west1 # TODO: update region of the Artifact Registry
   GKE_CLUSTER: main    # TODO: update to cluster name
   GKE_ZONE: us-central1-b   # TODO: update to cluster zone
