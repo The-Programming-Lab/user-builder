@@ -31,7 +31,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        repository: The-Programming-Lab/{{ inputs.repo_name }}
+        repository: The-Programming-Lab/${{ inputs.repo_name }}
         ref: main
 
     # Configure Workload Identity Federation and generate an access token.
