@@ -9,8 +9,12 @@ name: Build and Deploy to GKE
 on:
   workflow_dispatch:
     inputs:
-      repo_name:
-        description: 'The name of the repository'
+      IMAGE_NAME:
+        description: 'The name of the image will be saved under'
+      PROJECT_ID:
+        description: 'The id of the project'
+      BUILD_REPO_NAME:
+        description: 'The name of the repo to be built'
     
 
 env:
@@ -19,6 +23,7 @@ env:
   GKE_CLUSTER: main    # TODO: update to cluster name
   GKE_ZONE: us-central1-b   # TODO: update to cluster zone
   REPOSITORY: hello-repo # TODO: update to Artifact Registry docker repository
+  IMAGE: ${{ inputs.IMAGE_NAME }}
 
 jobs:
   setup-build-publish-deploy:
@@ -34,7 +39,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        repository: The-Programming-Lab/${{ inputs.repo_name}}
+        repository: The-Programming-Lab/${{ inputs.BUILD_REPO_NAME}}
         ref: main
         
     # Configure Workload Identity Federation and generate an access token.
