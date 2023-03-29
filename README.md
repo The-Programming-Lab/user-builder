@@ -4,7 +4,8 @@ This repo will build and deploy all user web apps
 If you are using this for yourself you must define the following secrets in your repo:
 - GCP_SA_KEY: The service account key for the GCP project
 - GKE_WORKLOAD_IDENTITY_PROVIDER: The workload identity provider for the GKE cluster
-Checkout the [GKE Workload Identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) docs for more info
+
+Checkout the [GKE Workload Identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) docs for more info<br>
 Checkout the [Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) docs for more info
 
 ### command to use
