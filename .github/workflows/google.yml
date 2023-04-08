@@ -4,7 +4,7 @@
 # GKE_WORKLOAD_IDENTITY_PROVIDER: the workload identity provider
 
 
-name: Build and Deploy to GKE
+name: Build Image and Push to Registry
 
 on:
   workflow_dispatch:
