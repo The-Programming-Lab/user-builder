@@ -15,8 +15,8 @@ on:
         description: 'The id of the project'
       BUILD_REPO_NAME:
         description: 'The name of the repo to be built'
-      ENV_FILE_BASE64:
-        description: '.env file encoded base64'
+      ENV_FILE:
+        description: '.env file as string'
     
 
 env:
@@ -59,7 +59,7 @@ jobs:
     
     - name: Set up environment variables
       run: |
-        echo "${{ inputs.ENV_FILE_BASE64 }}" > .env
+        echo "${{ inputs.ENV_FILE }}" > .env
 
     # Build the Docker image
     - name: Build
