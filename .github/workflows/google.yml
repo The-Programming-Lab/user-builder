@@ -15,6 +15,8 @@ on:
         description: 'The id of the project'
       BUILD_REPO_NAME:
         description: 'The name of the repo to be built'
+      ENV_FILE_BASE64:
+        description: '.env file encoded base64'
     
 
 env:
@@ -54,12 +56,10 @@ jobs:
     - name: Docker configuration
       run: |-
         echo ${{steps.auth.outputs.access_token}} | docker login -u oauth2accesstoken --password-stdin https://$GAR_LOCATION-docker.pkg.dev
-    # Get the GKE credentials so we can deploy to the cluster
-    # - name: Set up GKE credentials
-    #   uses: google-github-actions/get-gke-credentials@v0
-    #   with:
-    #     cluster_name: ${{ env.GKE_CLUSTER }}
-    #     location: ${{ env.GKE_ZONE }}
+    
+    - name: Set up environment variables
+      run: |
+        echo "${{ inputs.ENV_FILE_BASE64 }}" > .env
 
     # Build the Docker image
     - name: Build
