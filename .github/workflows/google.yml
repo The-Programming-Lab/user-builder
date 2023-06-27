@@ -23,8 +23,8 @@ env:
   PROJECT_ID: ${{ inputs.PROJECT_ID }}
   GAR_LOCATION: us-west1 # TODO: update region of the Artifact Registry
   GKE_CLUSTER: main    # TODO: update to cluster name
-  GKE_ZONE: us-central1-b   # TODO: update to cluster zone
-  REPOSITORY: hello-repo # TODO: update to Artifact Registry docker repository
+  GKE_ZONE: us-central1-c   # TODO: update to cluster zone
+  REPOSITORY: host # TODO: update to Artifact Registry docker repository
   IMAGE: ${{ inputs.IMAGE_NAME }}
 
 jobs:
